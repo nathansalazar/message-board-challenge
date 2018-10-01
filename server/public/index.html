@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="vendors/angular.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <title>Message Board</title>
 </head>
+
 <body ng-app="MessagingApp" ng-controller="MessagingController as vm">
 
     <h1>Full Stack Messaging</h1>
 
     <form ng-submit="vm.postMessage(vm.newMessage)">
         <input type="text" placeholder="Name" ng-model="vm.newMessage.name">
-        <input type="text" placeholder="Message" ng-model="vm.newMessage.message">
+        <!-- <input type="text" placeholder="Message" ng-model="vm.newMessage.message"> -->
+        <textarea placeholder="Message" cols="30" rows="3" ng-model="vm.newMessage.message"></textarea>
         <input type="submit" value="Send">
     </form>
 
-    {{vm.message}}
+    <br>
 
     <div ng-repeat="message in vm.messages">
-        {{message.name}}: {{message.message}}
+        <span style="background-color:{{message.color}}">
+            {{message.name}}: {{message.message}}
+        </span>
+        <br>
+        <br>
     </div>
-    
+
 </body>
+
 </html>
