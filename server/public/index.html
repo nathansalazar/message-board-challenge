@@ -12,13 +12,17 @@
 
     <h1>Full Stack Messaging</h1>
 
-    <form>
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Message">
+    <form ng-submit="vm.postMessage(vm.newMessage)">
+        <input type="text" placeholder="Name" ng-model="vm.newMessage.name">
+        <input type="text" placeholder="Message" ng-model="vm.newMessage.message">
         <input type="submit" value="Send">
     </form>
 
     {{vm.message}}
+
+    <div ng-repeat="message in vm.messages">
+        {{message.name}}: {{message.message}}
+    </div>
     
 </body>
 </html>
